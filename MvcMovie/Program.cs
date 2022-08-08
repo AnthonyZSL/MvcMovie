@@ -6,6 +6,8 @@ using MvcMovie.Data;
 //再加一个test再来一个
 //再来第三行
 
+//好的进入下一个理解！！next1
+
 namespace MvcMovie
 {
     public class Program
