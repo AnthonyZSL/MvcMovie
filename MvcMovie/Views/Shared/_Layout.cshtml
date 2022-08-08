@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Movie App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MvcMovie.styles.css" asp-append-version="true" />
+
+
+
+
+
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"> </script>*@
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+
+        /*
+        $(document).ready(function() {
+
+            $("p").click(function() {
+                $(this).hide();
+            });
+
+            $("#TestA").click(function() {
+                $("#TestB").show();
+            });
+
+            //   var input = document.getElementById("d1");
+            // 获取value对应的值
+            // alert(input.value);
+
+
+            // 使用JQuery对象获取input标签:
+            // 使用jquery的方法是获取到的节点或对象叫jQuery对象
+            // var $input = $("input"); // 双引号 可以使用$ 便于辨别
+            //alert($input.val()); // 只能调用自己的API不能使用DOM对象的API
+
+
+            // ====================================================
+
+            // 将DOM对象 转换成 JQuery对象：使用$函数
+            //  var $input1 =  $(input); // 这里面的input是DOM对象  将DOM对象转换成一个JQuery对象
+            //  alert($input1.val()); // 使用JQuery的API【方法】
+
+
+            // 简写 上述两行
+            //  alert($(this).val()); // 这里面的this是DOM对象，这一步骤$(this)，就是将DOM对象this转换成了JQuery对象
+            // alert($(input).val());  // 这里面的input是DOM对象，这一步骤$(input)，就是将DOM对象this转换成了JQuery对象
+
+
+            // 将JQuery对象转换陈DOM对象：使用下标
+            //  var input2 =  $input1[0]; // 这里的$input1是JQuery对象    接收的是DOM对象  一下两个都是不同的写法
+            //  var input2 =  $input1.get(0);
+            // alert(input2.value);
+
+
+
+            $("#checkAll").click(function() {            // 当点击全选时，对所有属性选择器的checked设置为true
+                // 利用属性选择器   先获取所有的单选框的标签
+                $("input[name='hobbies']").prop("checked", true); // 所有属性为hobbies
+            });
+
+            $("#checkNotAll").click(function() {
+                $("input[name='hobbies']").prop("checked", false);
+            });
+
+
+
+            $("#checkUnAll").click(function() {
+
+                var $inputs = $("input[name='hobbies']");
+
+                // 对获取到的input标签进行遍历 最后全部取反再设置进去   也可以查看API如何写的
+                //  $("img").each(function(i){
+                //   this.src = "test" + i + ".jpg";
+                //});
+
+                $inputs.each(function() {
+                    // 这里的this指代的是遍历时候的input标签 通过porp去获取checked的属性值
+                    var temp = $(this).prop("checked"); // 一个表示获取值
+
+                    // 进行对原始的状态进行取反  两个参数表示进行设置值
+                    $(this).prop("checked", !temp); //设值的方法
+
+                })
+
+            });
+
+
+
+            $("#btn1").click(function() {
+                $("ol li").append("<b>  追加文本  </b>");
+            });
+            $("#btn2").click(function() {
+                $("ol.LiTest").append("<li>追加的列</li>");
+            });
+            $("#btn3").click(function() {
+                $("li").remove("#List_3");
+            })
+
+
+        });
+
+
+        function checkChange(t) {
+            //获取到自己的状态
+            var myself = $(t).prop("checked");
+            //    将input标签下 name = hobbies的所有的checked 将自己的状态 赋值给这三个选项
+            $("input[name='hobbies']").prop("checked", myself);
+        }
+
+        */
+    </script>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Movies" asp-action="Index">Movie App</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--
+    <p id="TestB">如果你点我，我就会消失。</p>
+    <p id="TestA">继续点我!</p>
+    <p>接着点我!</p>
+    
+
+    <input type="button" value="按钮" id="d1">
+    <br />
+    <br />
+    <br />
+
+
+
+
+
+    请选择你的爱好:
+    <br />
+
+    <div>
+        <input type="checkbox" name="hobbies" />打篮球&nbsp;
+        <input type="checkbox" name="hobbies" />踢足球&nbsp;
+        <input type="checkbox" name="hobbies" />上网&nbsp;
+    </div>
+    <hr />
+    <div>
+        <input type="checkbox" onchange="checkChange(this)" />全选/全不选<br />
+
+        <input type="button" id="checkAll" value="全选" />
+        <input type="button" id="checkNotAll" value="全不选" />
+        <input type="button" id="checkUnAll" value="反选" />
+    </div>
+
+
+    <br />
+
+    <ol class="LiTest">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li id="List_3">List item 3</li>
+    </ol>
+    <button id="btn1">添加文本</button>
+    <button id="btn2">添加列表项</button>
+    <button id="btn3">删除list的第三个</button>
+
+    -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Movie App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>
