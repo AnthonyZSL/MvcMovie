@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MvcMovie.Data;
 
 //？？？test没看懂
+//再加一个test
 
 namespace MvcMovie
 {
